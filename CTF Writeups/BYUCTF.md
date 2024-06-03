@@ -40,7 +40,7 @@ n =  128393532851463575343089974408848099857979358442919384244000744053339479654
 e =  65537
 c =  93825584976187667358623690800406736193433562907249950376378278056949067505651948206582798483662803340120930066298960547657544217987827103350739742039606274017391266985269135268995550801742990600381727708443998391878164259416326775952210229572031793998878110937636005712923166229535455282012242471666332812788
 #### Solution
-Putting the value of n in FactorDB, it says that n is 100% prime. So we cannot spit n. Instead we need to calculate phi(n) = n-1 (For prime numbers, value of totient function is p-1). Using this phi, we do normal RSA
+Putting the value of n in FactorDB, it says that n is 100% prime. So we cannot split n. Instead we need to calculate phi(n) = n-1 (For prime numbers, value of totient function is p-1). Using this phi, we do normal RSA
 **Flag : byuctf{d1d_s0m3_rs4_stuff...m1ght_d3l3t3_l4t3r}**
 
 
