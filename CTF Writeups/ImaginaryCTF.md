@@ -181,10 +181,6 @@ if __name__ == "__main__":
 	main()
 ```
 
-### LF3R - Crypto
-
-The LF3R (Linear Feedback 3 state Register) is a modified version of a Linear Feedback Shift Register (LFSR, which produces a linear output), designed to produce a non-linear output.
-
 ### Lcasm - Crypto
 
 Read the decompiled code, to understand that we need to put some shellcode in to get a shell.
