@@ -1,7 +1,5 @@
 
-## 1. School Essay
-
-#Crypto
+## 1. School Essay - Crypto
 #### Description
 I had to write an essay for school describing my favorite classmate. I wonder if my classmates will be able to figure out who I'm describing...
 
@@ -42,7 +40,7 @@ Run the below command
 
 We will get a square root value : 703032588627510822704619969444615719158069204277139920487471397235396114708359092304587909772157
 
-```
+```python
 from Crypto.util.number import *
 a = 703032588627510822704619969444615719158069204277139920487471397235396114708359092304587909772157
 print(long_to_bytes(a))
